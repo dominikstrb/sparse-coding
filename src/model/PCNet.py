@@ -5,7 +5,7 @@ import torch.nn.functional as F
 
 class PCNet(nn.Module):
 
-    def __init__(self, K:int, M:int, R_epochs:int=150, R_lr:float=0.1, lmda:float=5e-3):
+    def __init__(self, K: int, M: int, R_epochs: int = 150, R_lr: float = 0.1, lmda: float = 5e-3):
         '''
         Create a sparse coding network. Neural responses are fitted through ISTA algorithm.
 
@@ -65,5 +65,3 @@ class PCNet(nn.Module):
         # now predict again
         pred = self.R @ self.U
         return pred
-
-

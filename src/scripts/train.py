@@ -1,5 +1,6 @@
 import os
 import sys
+
 sys.path.insert(0, os.path.abspath('../../.'))
 from tqdm import tqdm
 import random
@@ -17,7 +18,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # create net
 pcnet = PCNet(arg.n_neuron, arg.size, R_epochs=arg.r_epoch, R_lr=arg.r_learning_rate, lmda=arg.reg)
 # get data
-X = load_all_patches(arg.batch_size, arg.size).to(device)
+X = load_all_patches(arg.batch_size, arg.size, datapath=arg.data_path).to(device)
 # train
 for x in tqdm(range(arg.epoch), desc='training', total=arg.epoch):
     # sample patches
@@ -37,7 +38,8 @@ for x in tqdm(range(arg.epoch), desc='training', total=arg.epoch):
     pcnet.U.requires_grad_(True)
     # save
     if x % 100 == 0:
-        torch.save(pcnet, f"../../trained_models/model_epoch-{x}_N-{arg.batch_size}_K-{arg.n_neuron}_M-{arg.size}_lmda-{arg.reg}_Rlr_{arg.r_learning_rate}_Ulr_{arg.learning_rate}.pth")
+        torch.save(pcnet,
+                   f"../../trained_models/model_epoch-{x}_N-{arg.batch_size}_K-{arg.n_neuron}_M-{arg.size}_lmda-{arg.reg}_Rlr_{arg.r_learning_rate}_Ulr_{arg.learning_rate}.pth")
 
-torch.save(pcnet, f"../../trained_models/model_epoch-{x+1}_N-{arg.batch_size}_K-{arg.n_neuron}_M-{arg.size}_lmda-{arg.reg}_Rlr_{arg.r_learning_rate}_Ulr_{arg.learning_rate}.pth")
-
+torch.save(pcnet,
+           f"../../trained_models/model_epoch-{x + 1}_N-{arg.batch_size}_K-{arg.n_neuron}_M-{arg.size}_lmda-{arg.reg}_Rlr_{arg.r_learning_rate}_Ulr_{arg.learning_rate}.pth")
