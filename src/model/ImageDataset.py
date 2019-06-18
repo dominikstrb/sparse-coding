@@ -5,7 +5,7 @@ import torch
 from scipy.io import loadmat
 
 
-def load_all_patches(N: int, F: int, border: int = 4, datapath="../../data/") -> torch.tensor:
+def load_all_patches(N: int, F: int, border: int = 4, datapath="data/") -> torch.tensor:
     '''
     Create (num_images x N) number of patches of size F by F.
 

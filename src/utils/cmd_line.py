@@ -11,7 +11,7 @@ parser.add_argument('-re', '--r_epoch', default=300, type=int, help="Number of E
 parser.add_argument('-lr', '--learning_rate', default=1e-3, type=float, help="Learning rate")
 parser.add_argument('-rlr', '--r_learning_rate', default=1e-2, type=float, help="Learning rate for ISTA")
 parser.add_argument('-lmda', '--reg', default=5e-3, type=float, help="LSTM hidden size")
-parser.add_argument('-d', '--data-path', default="../../data", type=str, help="path were IMAGES.mat is located")
+parser.add_argument('-d', '--data-path', default="data", type=str, help="path were IMAGES.mat is located")
 
 
 # Parse arguments

@@ -39,7 +39,7 @@ for x in tqdm(range(arg.epoch), desc='training', total=arg.epoch):
     # save
     if x % 100 == 0:
         torch.save(pcnet,
-                   f"../../trained_models/model_epoch-{x}_N-{arg.batch_size}_K-{arg.n_neuron}_M-{arg.size}_lmda-{arg.reg}_Rlr_{arg.r_learning_rate}_Ulr_{arg.learning_rate}.pth")
+                   f"trained_models/model_epoch-{x}_N-{arg.batch_size}_K-{arg.n_neuron}_M-{arg.size}_lmda-{arg.reg}_Rlr_{arg.r_learning_rate}_Ulr_{arg.learning_rate}.pth")
 
 torch.save(pcnet,
-           f"../../trained_models/model_epoch-{x + 1}_N-{arg.batch_size}_K-{arg.n_neuron}_M-{arg.size}_lmda-{arg.reg}_Rlr_{arg.r_learning_rate}_Ulr_{arg.learning_rate}.pth")
+           f"trained_models/model_epoch-{x + 1}_N-{arg.batch_size}_K-{arg.n_neuron}_M-{arg.size}_lmda-{arg.reg}_Rlr_{arg.r_learning_rate}_Ulr_{arg.learning_rate}.pth")
