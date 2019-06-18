@@ -3,7 +3,7 @@ import torch
 import matplotlib.pyplot as plt
 from src.utils.cmd_line import parse_args
 
-### choose the model to load ###
+# choose the model to load
 arg = parse_args()
 
 # load model
@@ -15,7 +15,7 @@ U = model.U.clone()
 if U.is_cuda:
     U = U.cpu()
 U = U.data.numpy()
-
+np.save(f"trained_models/model_epoch-{arg.epoch}_N-{arg.batch_size}_K-{arg.n_neuron}_M-{arg.size}_lmda-{arg.reg}_Rlr_{arg.r_learning_rate}_Ulr_{arg.learning_rate}.npy", U)
 for i in range(10):
     for j in range(10):
         ax = axes[i, j]
