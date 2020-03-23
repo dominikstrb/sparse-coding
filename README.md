@@ -1,5 +1,7 @@
 # Sparse Coding
 
+ARCHIVED... is now part of my V1Stats package
+
 ![](./trained_models/RF.png)
 
 This is an implementation of Olshausen and Field's sparse coding paper in PyTorch. Iterative Shrinkage/Thresholding Algorithm 
